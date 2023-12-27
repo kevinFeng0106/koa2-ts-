@@ -5,16 +5,8 @@ import router from './routers'
 
 app.use(bodyParser())
 
-app.use(async (ctx, next) => {
-  console.log(111)
-  next()
-})
-
 app.use(router.routes())
-
-app.use(async (ctx, next) => {
-  console.log(222)
-})
+app.use(router.allowedMethods())
 
 app.listen(3000, () => {
 
